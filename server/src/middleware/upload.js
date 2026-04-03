@@ -1,12 +1,13 @@
 const path = require("path");
 const multer = require("multer");
 const { v4: uuidv4 } = require("uuid");
+const { getUploadDir } = require("../lib/uploadDir");
 
 const ALLOWED_EXTENSIONS = new Set([".stl", ".obj", ".3mf", ".step", ".stp"]);
 
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => {
-    cb(null, path.join(process.cwd(), "uploads"));
+    cb(null, getUploadDir());
   },
   filename: (_req, file, cb) => {
     const extension = path.extname(file.originalname).toLowerCase();

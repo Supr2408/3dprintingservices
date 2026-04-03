@@ -69,3 +69,10 @@ Client runs at `http://localhost:5173`.
 - Uploaded files are stored in `server/uploads`
 - Admin routes accept token via `x-admin-token` header or `Authorization: Bearer <token>`
 - Cart state persists in browser local storage
+
+## Vercel Deployment
+
+- Frontend-only project: set Vercel Root Directory to `client`
+- Backend-only project: set Vercel Root Directory to `server`
+- Full-stack single project from repo root: use the repo root as the Vercel Root Directory and keep the `vercel.json` in the root enabled
+- If Vercel dashboard has custom `Install Command`, `Build Command`, or `Output Directory` values, clear them so the checked-in `vercel.json` settings are used
