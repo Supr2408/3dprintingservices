@@ -7,7 +7,6 @@ import ErrorBanner from "../components/ErrorBanner";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 const statuses = ["Pending", "Printing", "Shipped"];
-const hardcodedClientToken = import.meta.env.VITE_ADMIN_TOKEN || "admin-secret-123";
 const backendBase = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/api\/?$/, "");
 
 function AdminPage() {
@@ -25,11 +24,6 @@ function AdminPage() {
   const authorize = async (event) => {
     event.preventDefault();
     setError("");
-
-    if (token !== hardcodedClientToken) {
-      setError("Invalid admin token.");
-      return;
-    }
 
     try {
       setLoading(true);
@@ -140,14 +134,20 @@ function AdminPage() {
               </div>
 
               {order.type === "custom" && order.file ? (
-                <a
-                  href={`${backendBase}${order.file.path}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-3 inline-block text-sm text-neon hover:text-neonSoft"
-                >
-                  View Uploaded File ({order.file.originalName})
-                </a>
+                order.file.externalLink ? (
+                  <a
+                    href={order.file.externalLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 inline-block text-sm text-neon hover:text-neonSoft"
+                  >
+                    Open Model Link ({order.file.originalName || "attached file"})
+                  </a>
+                ) : order.file.originalName ? (
+                  <p className="mt-3 text-sm text-slate-300">
+                    Uploaded file received: {order.file.originalName}
+                  </p>
+                ) : null
               ) : null}
             </article>
           ))

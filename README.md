@@ -44,7 +44,6 @@ Server runs at `http://localhost:5000`.
 
 ```
 VITE_API_BASE_URL=http://localhost:5000/api
-VITE_ADMIN_TOKEN=admin-secret-123
 ```
 
 4. Start frontend:
@@ -79,3 +78,4 @@ Client runs at `http://localhost:5173`.
 - Leave `Install Command`, `Build Command`, and `Output Directory` empty in the Vercel dashboard for both projects
 - For a separate frontend Vercel project, set `VITE_API_BASE_URL` to your deployed server URL plus `/api`
 - For a separate backend Vercel project, set `CLIENT_ORIGIN` to your deployed frontend URL
+- Do not expose `ADMIN_TOKEN` as a `VITE_...` frontend environment variable; enter it only on the backend project
