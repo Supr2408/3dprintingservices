@@ -2,11 +2,8 @@
   "name": "3d-print-platform",
   "version": "1.0.0",
   "description": "Full-stack 3D printing e-commerce platform",
+  "private": true,
   "scripts": {
-    "dev": "concurrently \"cd client && npm run dev\" \"cd server && npm start\"",
-    "build": "cd client && npm run build"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
+    "dev": "concurrently \"cd client && npm run dev\" \"cd server && npm start\""
   }
 }
