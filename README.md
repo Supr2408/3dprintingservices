@@ -74,7 +74,8 @@ Client runs at `http://localhost:5173`.
 
 - Frontend-only project: set Vercel Root Directory to `client`
 - Backend-only project: set Vercel Root Directory to `server`
-- Full-stack single project from repo root: use the repo root as the Vercel Root Directory and keep the `vercel.json` in the root enabled
-- If Vercel dashboard has custom `Install Command`, `Build Command`, or `Output Directory` values, clear them so the checked-in `vercel.json` settings are used
+- Create separate Vercel projects for `client` and `server`
+- Do not create a separate Vercel project for the repo-level `api` folder
+- Leave `Install Command`, `Build Command`, and `Output Directory` empty in the Vercel dashboard for both projects
 - For a separate frontend Vercel project, set `VITE_API_BASE_URL` to your deployed server URL plus `/api`
 - For a separate backend Vercel project, set `CLIENT_ORIGIN` to your deployed frontend URL
