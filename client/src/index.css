@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #1f2933;
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.soft-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.soft-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(13, 115, 119, 0.25);
+  border-radius: 999px;
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(17, 24, 39, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at 50% 35%, black 15%, transparent 70%);
+}
+
+.page-enter {
+  animation: fadeRise 0.45s ease-out;
+}
+
+.hero-gradient {
+  background: linear-gradient(120deg, #111827 0%, #4b5563 52%, #111827 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-blueprint {
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(17, 24, 39, 0.08), transparent 24%),
+    linear-gradient(rgba(17, 24, 39, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.06) 1px, transparent 1px);
+  background-size: auto, 26px 26px, 26px 26px;
+}
+
+.float-slow {
+  animation: floatY 6.4s ease-in-out infinite;
+}
+
+.float-mid {
+  animation: floatY 5.6s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.float-fast {
+  animation: floatY 4.8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.pei-texture {
+  background:
+    linear-gradient(145deg, #f4f2ee 0%, #ebdfcf 100%),
+    repeating-linear-gradient(45deg, rgba(17, 24, 39, 0.04) 0, rgba(17, 24, 39, 0.04) 2px, transparent 2px, transparent 7px);
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

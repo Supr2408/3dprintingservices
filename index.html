@@ -1,0 +1,2155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shree Sindhvai Tech | Premium 3D Printing Services</title>
+    <meta name="description" content="Shree Sindhvai Tech - premium 3D printing services in India with a warm editorial storefront experience." />
+    <meta name="theme-color" content="#F2EDE6" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f2ede6;
+        --card: #ffffff;
+        --image: #eae4dc;
+        --primary: #0d6e6e;
+        --primary-hover: #094f4f;
+        --heading: #1a1a1a;
+        --body: #5a5550;
+        --muted: #9a948e;
+        --border: #ddd7cf;
+        --badge-bg: #f0ebe3;
+        --footer: #1c1918;
+        --footer-muted: #a0998e;
+        --shadow: 0 14px 40px rgba(26, 26, 26, 0.08);
+        --shadow-soft: 0 8px 24px rgba(26, 26, 26, 0.06);
+        --radius-xl: 24px;
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --container: 1200px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--body);
+        font-family: "DM Sans", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      button, input, textarea { font: inherit; }
+      img, svg { display: block; max-width: 100%; }
+
+      .container {
+        width: min(calc(100% - 32px), var(--container));
+        margin: 0 auto;
+      }
+
+      .top-bar {
+        height: 3px;
+        background: var(--primary);
+      }
+
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(242, 237, 230, 0.9);
+        backdrop-filter: blur(0px);
+        border-bottom: 1px solid transparent;
+        transition: background 0.2s ease, backdrop-filter 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .navbar.scrolled {
+        background: rgba(242, 237, 230, 0.94);
+        backdrop-filter: blur(12px);
+        border-color: rgba(221, 215, 207, 0.9);
+        box-shadow: 0 8px 24px rgba(26, 26, 26, 0.06);
+      }
+
+      .navbar-inner {
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 700;
+        font-size: 1.38rem;
+        letter-spacing: 0.06em;
+        color: var(--heading);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        font-size: 0.95rem;
+        color: var(--body);
+      }
+
+      .nav-links a {
+        position: relative;
+        padding: 8px 0;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: var(--primary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.18s ease;
+      }
+
+      .nav-links a:hover::after { transform: scaleX(1); }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .pill-btn, .outline-btn, .solid-btn, .ghost-btn, .icon-btn {
+        border: 0;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+      }
+
+      .pill-btn:hover, .outline-btn:hover, .solid-btn:hover, .ghost-btn:hover, .icon-btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .cart-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 16px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        color: var(--heading);
+        box-shadow: 0 10px 24px rgba(26, 26, 26, 0.05);
+        font-weight: 700;
+      }
+
+      .cart-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: var(--primary);
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 0 6px;
+      }
+
+      .solid-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: var(--primary);
+        color: #fff;
+        padding: 13px 18px;
+        font-weight: 700;
+        box-shadow: 0 12px 26px rgba(13, 110, 110, 0.18);
+      }
+
+      .solid-btn:hover { background: var(--primary-hover); }
+
+      .outline-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--heading);
+        padding: 13px 18px;
+        font-weight: 700;
+      }
+
+      .outline-btn:hover {
+        border-color: rgba(13, 110, 110, 0.28);
+        color: var(--primary);
+      }
+
+      .section { padding: 26px 0; }
+      .hero { padding-top: 28px; }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.02fr 0.98fr;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin: 0 0 14px;
+      }
+
+      .display-title {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 600;
+        color: var(--heading);
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+        font-size: clamp(3.2rem, 6vw, 5.8rem);
+        margin: 10px 0 14px;
+      }
+
+      .display-title .accent {
+        color: var(--primary);
+      }
+
+      .hero-subcopy {
+        max-width: 460px;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--body);
+        margin: 0;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .trust-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: #fff;
+        border: 1px solid var(--border);
+        color: var(--body);
+        font-size: 0.88rem;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .chip b {
+        color: var(--heading);
+        font-weight: 700;
+      }
+
+      .visual-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 16px;
+        box-shadow: var(--shadow);
+      }
+
+      .visual-frame {
+        background: var(--image);
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero-visual {
+        min-height: 480px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+
+      .printer-shell {
+        width: 100%;
+      }
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: #fff;
+        border: 1px solid var(--border);
+        color: var(--body);
+        font-size: 12px;
+      }
+
+      .trust-strip {
+        background: #fff;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        margin: 12px 0 0;
+      }
+
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        padding: 20px 0;
+      }
+
+      .trust-item {
+        text-align: center;
+        border-right: 1px solid rgba(221, 215, 207, 0.8);
+        padding: 0 16px;
+      }
+
+      .trust-item:last-child { border-right: 0; }
+
+      .trust-number {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 38px;
+        line-height: 0.95;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .trust-label {
+        margin-top: 8px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+        align-items: end;
+        margin-bottom: 16px;
+      }
+
+      .section-title {
+        margin: 0;
+        color: var(--heading);
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.4rem, 4vw, 3.8rem);
+        line-height: 0.95;
+        font-weight: 600;
+      }
+
+      .section-label {
+        margin: 0 0 10px;
+        color: var(--primary);
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+      }
+
+      .section-subtitle {
+        margin: 0;
+        color: var(--body);
+        max-width: 560px;
+        line-height: 1.75;
+        text-align: right;
+      }
+
+      .underline-bar {
+        width: 48px;
+        height: 3px;
+        background: var(--primary);
+        margin-top: 14px;
+        border-radius: 999px;
+      }
+
+      .filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 8px 0 22px;
+      }
+
+      .filter-pill {
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--heading);
+        padding: 10px 16px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .filter-pill.active {
+        background: var(--primary);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .product-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.22s ease;
+        will-change: transform, opacity;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+      }
+
+      .product-card.hidden {
+        opacity: 0;
+        transform: translateY(10px) scale(0.985);
+        pointer-events: none;
+      }
+
+      .product-image {
+        background: var(--image);
+        height: 200px;
+        overflow: hidden;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .product-body {
+        padding: 14px 14px 16px;
+      }
+
+      .product-head {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .product-name {
+        margin: 0;
+        color: var(--heading);
+        font-size: 17px;
+        line-height: 1.25;
+        font-weight: 700;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border);
+        background: var(--badge-bg);
+        color: var(--body);
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+
+      .product-desc {
+        margin: 10px 0 14px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.65;
+        min-height: 46px;
+      }
+
+      .product-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .material-label {
+        font-family: "DM Mono", monospace;
+        font-size: 12px;
+        color: var(--heading);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .price {
+        color: var(--primary);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 22px;
+        font-weight: 600;
+      }
+
+      .add-btn {
+        width: 100%;
+        border-radius: 10px;
+        padding: 13px 14px;
+        font-weight: 700;
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 10px 22px rgba(13, 110, 110, 0.14);
+      }
+
+      .add-btn:hover { background: var(--primary-hover); }
+
+      .custom-band {
+        background: #fff;
+        padding: 80px 0;
+      }
+
+      .custom-grid {
+        display: grid;
+        grid-template-columns: 1.02fr 0.98fr;
+        gap: 24px;
+        align-items: start;
+      }
+
+      .custom-title {
+        font-family: "Cormorant Garamond", serif;
+        color: var(--heading);
+        font-weight: 600;
+        font-size: clamp(2.5rem, 4vw, 3.6rem);
+        margin: 0 0 14px;
+        line-height: 0.98;
+      }
+
+      .custom-copy {
+        margin: 0;
+        max-width: 600px;
+        color: var(--body);
+        line-height: 1.8;
+      }
+
+      .drop-zone {
+        margin-top: 22px;
+        background: #f0faf9;
+        border: 2px dashed var(--primary);
+        border-radius: 16px;
+        padding: 24px;
+      }
+
+      .drop-inner {
+        border-radius: 14px;
+        background: rgba(255,255,255,0.72);
+        padding: 22px 18px;
+        text-align: center;
+      }
+
+      .drop-title {
+        margin: 10px 0 4px;
+        color: var(--heading);
+        font-weight: 700;
+      }
+
+      .drop-copy {
+        margin: 0;
+        color: var(--body);
+        font-size: 14px;
+      }
+
+      .file-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 16px;
+      }
+
+      .file-pill {
+        font-family: "DM Mono", monospace;
+        font-size: 12px;
+        color: var(--primary);
+        border: 1px solid rgba(13, 110, 110, 0.25);
+        background: rgba(255,255,255,0.85);
+        padding: 7px 10px;
+        border-radius: 999px;
+      }
+
+      .choose-file {
+        display: inline-flex;
+        margin-top: 16px;
+        padding: 9px 14px;
+        border: 1px solid rgba(13, 110, 110, 0.28);
+        border-radius: 999px;
+        color: var(--primary);
+        background: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .file-name {
+        margin-top: 14px;
+        color: var(--primary);
+        font-size: 14px;
+        min-height: 20px;
+      }
+
+      .quote-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .quote-section {
+        margin-bottom: 20px;
+      }
+
+      .quote-kicker {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+
+      .pill-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .value-pill {
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--heading);
+        padding: 9px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .value-pill.active {
+        background: var(--primary);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .qty-box {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--border);
+        background: #fff;
+        border-radius: 999px;
+        padding: 6px;
+      }
+
+      .qty-box button {
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--heading);
+        font-size: 1.05rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .qty-box span {
+        min-width: 20px;
+        text-align: center;
+        font-weight: 700;
+        color: var(--heading);
+      }
+
+      .quote-panel {
+        margin-top: 20px;
+        background: #f7f8f7;
+        border-radius: 14px;
+        padding: 18px;
+        border: 1px solid #e5e2db;
+      }
+
+      .quote-panel .label {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+
+      .quote-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 9px 0;
+        font-size: 14px;
+        color: var(--body);
+      }
+
+      .quote-row strong {
+        color: var(--heading);
+      }
+
+      .quote-total {
+        border-top: 1px solid rgba(221, 215, 207, 0.95);
+        margin-top: 12px;
+        padding-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .quote-total span:first-child {
+        color: var(--heading);
+        font-weight: 700;
+      }
+
+      .quote-total span:last-child {
+        color: var(--primary);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 28px;
+        font-weight: 600;
+      }
+
+      .submit-btn {
+        width: 100%;
+        margin-top: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: var(--primary);
+        color: #fff;
+        padding: 14px 18px;
+        border-radius: 999px;
+        font-weight: 700;
+        box-shadow: 0 12px 26px rgba(13, 110, 110, 0.16);
+      }
+
+      .submit-btn:hover { background: var(--primary-hover); }
+
+      .how-grid, .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .how-card, .why-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 22px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .how-icon {
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .how-card h3, .why-card h3 {
+        margin: 14px 0 8px;
+        color: var(--heading);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.7rem;
+        line-height: 1;
+      }
+
+      .how-card p, .why-card p {
+        margin: 0;
+        color: var(--body);
+        line-height: 1.75;
+      }
+
+      .why-band {
+        background: var(--bg);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .footer {
+        background: var(--footer);
+        color: var(--footer-muted);
+        padding: 64px 0 22px;
+        margin-top: 24px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr 1.1fr;
+        gap: 22px;
+      }
+
+      .footer h4 {
+        margin: 0 0 16px;
+        color: #fff;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.7rem;
+      }
+
+      .footer h5 {
+        margin: 0 0 14px;
+        color: #fff;
+        font-size: 0.95rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .footer p, .footer li { line-height: 1.8; }
+
+      .footer ul { list-style: none; padding: 0; margin: 0; }
+      .footer li + li { margin-top: 8px; }
+
+      .footer a { color: inherit; }
+      .footer a:hover { color: #fff; }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        margin-top: 28px;
+        padding-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        font-size: 0.92rem;
+      }
+
+      .social-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .social-dot {
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: #fff;
+      }
+
+      .policy-link, .contact-pill {
+        color: var(--footer-muted);
+      }
+
+      .whatsapp-fab {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 70;
+        width: 60px;
+        height: 60px;
+        border-radius: 999px;
+        background: #25d366;
+        color: #fff;
+        border: 0;
+        box-shadow: 0 18px 40px rgba(37, 211, 102, 0.35);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.45rem;
+      }
+
+      .whatsapp-fab::after {
+        content: "";
+        position: absolute;
+        inset: -8px;
+        border-radius: 999px;
+        border: 1px solid rgba(37, 211, 102, 0.38);
+        animation: pulse 2.1s infinite;
+      }
+
+      .whatsapp-popup {
+        position: fixed;
+        right: 20px;
+        bottom: 92px;
+        width: min(92vw, 360px);
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: 0 22px 60px rgba(26, 26, 26, 0.18);
+        overflow: hidden;
+        transform: translateY(18px) scale(0.98);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.22s ease, transform 0.22s ease;
+        z-index: 71;
+      }
+
+      .whatsapp-popup.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+
+      .whatsapp-head {
+        background: #25d366;
+        color: #fff;
+        padding: 16px 16px 14px;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .whatsapp-head h3 {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.65rem;
+      }
+
+      .whatsapp-head p {
+        margin: 2px 0 0;
+        color: rgba(255,255,255,0.9);
+        font-size: 0.9rem;
+      }
+
+      .close-x {
+        border: 0;
+        background: rgba(255,255,255,0.18);
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .whatsapp-body {
+        padding: 14px;
+      }
+
+      .chat-bubble {
+        background: #f7f8f7;
+        border: 1px solid #e7e2da;
+        border-radius: 16px;
+        padding: 14px;
+        color: var(--body);
+        line-height: 1.65;
+        margin-bottom: 12px;
+      }
+
+      .quick-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .quick-btn {
+        width: 100%;
+        text-align: left;
+        border: 1px solid var(--border);
+        background: #fff;
+        border-radius: 12px;
+        padding: 10px 12px;
+        cursor: pointer;
+        color: var(--heading);
+        transition: border-color 0.18s ease, background 0.18s ease;
+      }
+
+      .quick-btn:hover {
+        border-color: rgba(13, 110, 110, 0.3);
+        background: rgba(13, 110, 110, 0.04);
+      }
+
+      .wa-input {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: #fff;
+        padding: 12px 12px;
+        resize: vertical;
+        min-height: 88px;
+        color: var(--heading);
+        outline: none;
+      }
+
+      .wa-input:focus {
+        border-color: rgba(13, 110, 110, 0.3);
+        box-shadow: 0 0 0 4px rgba(13, 110, 110, 0.08);
+      }
+
+      .wa-send {
+        width: 100%;
+        margin-top: 10px;
+        border: 0;
+        border-radius: 999px;
+        background: #25d366;
+        color: #fff;
+        padding: 12px 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .wa-note {
+        margin-top: 10px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 18, 16, 0.38);
+        backdrop-filter: blur(8px);
+        z-index: 80;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .modal-backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .policy-modal {
+        position: fixed;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 100%);
+        width: min(92vw, 860px);
+        background: #fff;
+        border-radius: 20px 20px 0 0;
+        border: 1px solid var(--border);
+        box-shadow: 0 -18px 60px rgba(26, 26, 26, 0.18);
+        z-index: 81;
+        transition: transform 0.25s ease;
+        overflow: hidden;
+      }
+
+      .policy-modal.open { transform: translate(-50%, 0); }
+
+      .policy-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 18px 22px;
+        background: #fbfaf7;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .policy-head h3 {
+        margin: 0;
+        color: var(--heading);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.95rem;
+      }
+
+      .policy-body {
+        padding: 22px;
+        color: var(--body);
+        line-height: 1.8;
+        max-height: min(72vh, 760px);
+        overflow: auto;
+      }
+
+      .policy-body h4 {
+        margin: 18px 0 10px;
+        color: var(--heading);
+        font-size: 1rem;
+      }
+
+      .cart-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(92vw, 420px);
+        height: 100vh;
+        background: #fff;
+        border-left: 1px solid var(--border);
+        z-index: 85;
+        transform: translateX(100%);
+        transition: transform 0.25s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .cart-drawer.open { transform: translateX(0); }
+
+      .cart-head {
+        padding: 18px 18px 14px;
+        background: #fbfaf7;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .cart-head h3 {
+        margin: 0;
+        color: var(--heading);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+      }
+
+      .cart-body {
+        flex: 1;
+        overflow: auto;
+        padding: 16px 18px 18px;
+      }
+
+      .cart-item {
+        display: grid;
+        grid-template-columns: 78px 1fr;
+        gap: 12px;
+        align-items: start;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: #fff;
+        margin-bottom: 12px;
+      }
+
+      .cart-item h4 {
+        margin: 0 0 4px;
+        color: var(--heading);
+        font-size: 1rem;
+      }
+
+      .cart-item p {
+        margin: 0;
+        color: var(--body);
+        font-size: 0.92rem;
+      }
+
+      .cart-thumb {
+        width: 78px;
+        height: 78px;
+        border-radius: 12px;
+        background: var(--image);
+        overflow: hidden;
+        border: 1px solid rgba(221,215,207,0.7);
+      }
+
+      .cart-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .qty-mini {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 4px;
+      }
+
+      .qty-mini button {
+        width: 28px;
+        height: 28px;
+        border: 0;
+        border-radius: 999px;
+        background: #fff;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .qty-mini span { min-width: 14px; text-align: center; font-weight: 700; }
+
+      .remove-btn {
+        margin-left: auto;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .cart-foot {
+        border-top: 1px solid var(--border);
+        padding: 16px 18px 18px;
+        background: #fff;
+      }
+
+      .cart-summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .cart-summary strong {
+        color: var(--heading);
+      }
+
+      .cart-empty {
+        padding: 18px;
+        border: 1px dashed var(--border);
+        border-radius: 14px;
+        background: #fbfaf7;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .hidden { display: none !important; }
+
+      .is-fading { opacity: 0; transform: translateY(10px) scale(0.985); pointer-events: none; }
+
+      .small-note {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 8px;
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(0.9); opacity: 0.72; }
+        70% { transform: scale(1.2); opacity: 0; }
+        100% { transform: scale(1.2); opacity: 0; }
+      }
+
+      @keyframes floatY {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+
+      @media (max-width: 1100px) {
+        .hero-grid, .custom-grid { grid-template-columns: 1fr; }
+        .section-head { grid-template-columns: 1fr; }
+        .section-subtitle { text-align: left; }
+        .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .how-grid, .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+
+      @media (max-width: 720px) {
+        .navbar-inner { min-height: 66px; }
+        .nav-links { display: none; }
+        .hero-visual { min-height: 360px; }
+        .trust-grid { grid-template-columns: 1fr; }
+        .trust-item { border-right: 0; border-bottom: 1px solid rgba(221, 215, 207, 0.8); padding: 0 0 16px; }
+        .trust-item:last-child { border-bottom: 0; padding-bottom: 0; }
+        .product-grid, .how-grid, .why-grid, .footer-grid { grid-template-columns: 1fr; }
+        .custom-band { padding: 58px 0; }
+        .footer { padding-top: 48px; }
+        .cart-drawer { width: 100vw; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar"></div>
+    <header class="navbar" id="navbar">
+      <div class="container navbar-inner">
+        <a href="#top" class="brand">Shree Sindhvai Tech</a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#products">Products</a>
+          <a href="#custom-order">Custom Order</a>
+          <a href="#how-it-works">How It Works</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="cart-btn" type="button" id="cartToggle" aria-label="Open cart">
+            Cart <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+          <a class="solid-btn" id="quoteTopBtn" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Shree%20Sindhvai%20Tech!%20I%20want%20a%20quote%20for%20my%203D%20printing%20project." target="_blank" rel="noreferrer">Get a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="section hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Premium 3D Printing</p>
+            <div class="eyebrow" style="margin-top:0; margin-bottom:12px; color:var(--heading); letter-spacing:0.18em;">Shree Sindhvai Tech</div>
+            <h1 class="display-title">
+              Turn Your Ideas<br />
+              <span class="accent">Into Reality</span>
+            </h1>
+            <p class="hero-subcopy">Custom 3D printing services in India for gifts, desk setups, home use, and small business needs. Browse ready-made products or upload your design for a quick quote.</p>
+            <div class="hero-actions">
+              <a class="solid-btn" href="#products">Browse Products</a>
+              <a class="outline-btn" href="#custom-order">Upload Design</a>
+            </div>
+            <div class="trust-chips">
+              <span class="chip">· <b>Made to order</b></span>
+              <span class="chip">· <b>Upload your model</b></span>
+              <span class="chip">· <b>Help on WhatsApp</b></span>
+            </div>
+          </div>
+
+          <div class="visual-card">
+            <div class="visual-frame hero-visual">
+              <div class="printer-shell">
+                <svg viewBox="0 0 480 360" width="100%" height="100%" aria-label="3D printer illustration" role="img">
+                  <defs>
+                    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#0D6E6E" stop-opacity="0.65" />
+                      <stop offset="100%" stop-color="#0D6E6E" stop-opacity="0" />
+                    </radialGradient>
+                    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0d6e6e" flood-opacity="0.18" /></filter>
+                  </defs>
+                  <rect x="0" y="0" width="480" height="360" rx="16" fill="#EAE4DC" />
+                  <rect x="86" y="54" width="308" height="192" rx="12" fill="none" stroke="#1A1A1A" stroke-width="12" filter="url(#shadow)" />
+                  <rect x="122" y="96" width="236" height="12" rx="6" fill="#1A1A1A" />
+                  <rect x="132" y="110" width="18" height="110" rx="9" fill="#1A1A1A" />
+                  <rect x="330" y="110" width="18" height="110" rx="9" fill="#1A1A1A" />
+                  <rect x="106" y="260" width="268" height="22" rx="11" fill="#0D6E6E" />
+                  <rect x="145" y="276" width="190" height="16" rx="8" fill="#176f6f" />
+                  <rect x="170" y="118" width="140" height="46" rx="8" fill="#1A1A1A" />
+                  <rect x="218" y="146" width="44" height="12" rx="6" fill="#EAE4DC" />
+                  <circle cx="240" cy="198" r="44" fill="url(#glow)" />
+                  <path d="M240 164 L218 208 L240 250 L262 208 Z" fill="#0D6E6E" fill-opacity="0.72" stroke="#0D6E6E" stroke-width="3" filter="url(#shadow)" />
+                  <path d="M240 164 L240 250 M218 208 L262 208" stroke="#EAE4DC" stroke-width="2" opacity="0.7" />
+                  <rect x="151" y="298" width="178" height="8" rx="4" fill="#C96A3A" />
+                </svg>
+                <div class="badge-row">
+                  <span class="badge-pill">🟢 Live Tracking</span>
+                  <span class="badge-pill">⭐ 4.9★</span>
+                  <span class="badge-pill">🇮🇳 India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip">
+        <div class="container trust-grid">
+          <div class="trust-item">
+            <div class="trust-number">500+</div>
+            <div class="trust-label">Orders</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-number">12+</div>
+            <div class="trust-label">Materials</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-number">48hr</div>
+            <div class="trust-label">Turnaround</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-number">4.9★</div>
+            <div class="trust-label">Rating</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="products">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-label">READY-MADE PRODUCTS</p>
+              <h2 class="section-title">Browse the catalog</h2>
+              <div class="underline-bar"></div>
+            </div>
+            <p class="section-subtitle">Popular items for gifts, desk setups, home use, and small business needs.</p>
+          </div>
+
+          <div class="filter-row" id="filterRow"></div>
+          <div class="product-grid" id="productGrid"></div>
+        </div>
+      </section>
+
+      <section class="custom-band" id="custom-order">
+        <div class="container custom-grid">
+          <div>
+            <p class="section-label">CUSTOM ORDER</p>
+            <h2 class="custom-title">Have your own design?</h2>
+            <p class="custom-copy">Upload your STL, OBJ, or 3MF file. We'll review and respond with a proper quote via WhatsApp.</p>
+
+            <div class="drop-zone">
+              <div class="drop-inner" id="dropArea">
+                <div style="font-size:2rem;">☁️</div>
+                <div class="drop-title">Drag and drop your file here</div>
+                <p class="drop-copy">Accepted: STL, OBJ, 3MF</p>
+                <div class="file-pills">
+                  <span class="file-pill">.STL</span>
+                  <span class="file-pill">.OBJ</span>
+                  <span class="file-pill">.3MF</span>
+                </div>
+                <label class="choose-file" for="modelFile">Choose File</label>
+                <input id="modelFile" type="file" accept=".stl,.obj,.3mf" hidden />
+                <div class="file-name" id="fileName">No file selected yet</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-section">
+              <div class="quote-kicker">MATERIAL</div>
+              <div class="pill-group" id="materialGroup"></div>
+            </div>
+
+            <div class="quote-section">
+              <div class="quote-kicker">QUANTITY</div>
+              <div class="qty-box">
+                <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
+                <span id="quantityDisplay">1</span>
+                <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+
+            <div class="quote-panel">
+              <div class="label">Estimated Price</div>
+              <div class="quote-row"><span>Material: <strong id="quoteMaterial">PLA</strong></span><strong id="quoteMatPrice">₹0</strong></div>
+              <div class="quote-row"><span>Qty: <strong id="quoteQty">1</strong></span><strong id="quoteMul">×1</strong></div>
+              <div class="quote-total"><span>Est. Total</span><span id="quoteTotal">Contact us</span></div>
+            </div>
+
+            <button type="button" class="submit-btn" id="saveRequestBtn">Save Request &amp; Get Quote on WhatsApp ▶</button>
+            <div class="small-note">Regular testing mode keeps contact details hidden until launch.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="how-it-works">
+        <div class="container">
+          <div class="section-label">HOW IT WORKS</div>
+          <h2 class="section-title">Simple ordering in three steps</h2>
+          <div class="underline-bar"></div>
+          <div class="how-grid" style="margin-top:18px;">
+            <div class="how-card">
+              <div class="how-icon">🛒</div>
+              <h3>Choose or Upload</h3>
+              <p>Browse ready products or upload your STL/OBJ/3MF file.</p>
+            </div>
+            <div class="how-card">
+              <div class="how-icon">⚙️</div>
+              <h3>We Print It</h3>
+              <p>Our team reviews, prints with precision, and checks quality.</p>
+            </div>
+            <div class="how-card">
+              <div class="how-icon">📦</div>
+              <h3>Delivered to You</h3>
+              <p>Shipped pan-India with tracking within 3–7 days.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section why-band">
+        <div class="container">
+          <div class="section-label">WHY US</div>
+          <h2 class="section-title">Trust built for India</h2>
+          <div class="underline-bar"></div>
+          <div class="why-grid" style="margin-top:18px;">
+            <div class="why-card"><h3>500+ Happy Customers</h3><p>Consistent quality for personal, hobby and business orders.</p></div>
+            <div class="why-card"><h3>12 Material Types</h3><p>PLA, ABS, PETG and resin options for versatile production.</p></div>
+            <div class="why-card"><h3>48hr Avg. Delivery</h3><p>Quick turnaround for fast-moving projects and gifting needs.</p></div>
+            <div class="why-card"><h3>4.9★ Google Rating</h3><p>Trusted service experience built around clarity and support.</p></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h4>Shree Sindhvai Tech</h4>
+          <p>Premium 3D Printing Services</p>
+          <p>India</p>
+          <div class="social-row" aria-label="Social links">
+            <span class="social-dot">IG</span>
+            <span class="social-dot">FB</span>
+            <span class="social-dot">IN</span>
+            <span class="social-dot">YT</span>
+          </div>
+        </div>
+
+        <div>
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#custom-order">Custom Order</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#" id="openCartFooter">Cart</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5>Policies</h5>
+          <ul>
+            <li><a href="#" class="policy-open" data-policy="refund">Refund Policy</a></li>
+            <li><a href="#" class="policy-open" data-policy="shipping">Shipping Policy</a></li>
+            <li><a href="#" class="policy-open" data-policy="privacy">Privacy Policy</a></li>
+            <li><a href="#" class="policy-open" data-policy="terms">Terms &amp; Conditions</a></li>
+            <li><a href="#" class="policy-open" data-policy="cancellation">Cancellation Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5>Contact Us</h5>
+          <p>Address: India</p>
+          <p>Phone: Coming soon</p>
+          <p>Email: Coming soon</p>
+          <p>Hours: Mon-Sat, 9:00 AM - 6:00 PM IST</p>
+          <a class="solid-btn" style="margin-top:12px; display:inline-flex;" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Shree%20Sindhvai%20Tech!%20I%20have%20a%20query%20about%20your%203D%20printing%20services." target="_blank" rel="noreferrer">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <div>© 2025 Shree Sindhvai Tech</div>
+        <div>Made with ❤️ in India 🇮🇳</div>
+        <div>Payment: UPI · Razorpay · COD</div>
+      </div>
+    </footer>
+
+    <button class="whatsapp-fab" id="waButton" type="button" aria-label="Open WhatsApp chat">💬</button>
+    <div class="whatsapp-popup" id="waPopup" aria-hidden="true">
+      <div class="whatsapp-head">
+        <div>
+          <h3>Shree Sindhvai Tech Support</h3>
+          <p>Hi! How can we help you? Choose a topic or message us directly.</p>
+        </div>
+        <button class="close-x" type="button" id="waClose">×</button>
+      </div>
+      <div class="whatsapp-body">
+        <div class="chat-bubble">Hi! How can we help you? Choose a topic or message us directly.</div>
+        <div class="quick-grid">
+          <button class="quick-btn" type="button" data-wa-message="Hi Shree Sindhvai Tech! I have a custom 3D print query.">🖨️ Custom Print Query</button>
+          <button class="quick-btn" type="button" data-wa-message="Hi! I want to track my order. My Order ID is:">📦 Track My Order</button>
+          <button class="quick-btn" type="button" data-wa-message="Hi! I'd like a pricing quote for 3D printing.">💰 Pricing &amp; Quote</button>
+          <button class="quick-btn" type="button" data-wa-message="Hi, I need help with a refund or complaint.">🔄 Refund / Complaint</button>
+          <button class="quick-btn" type="button" data-wa-message="Hi Shree Sindhvai Tech! I have a question.">❓ Something Else</button>
+        </div>
+        <textarea class="wa-input" id="waInput" placeholder="Write your message..."></textarea>
+        <button class="wa-send" id="waSend" type="button">Send on WhatsApp</button>
+        <div class="wa-note">🔒 You'll be redirected to WhatsApp to continue securely.</div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="policy-modal" id="policyModal" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
+      <div class="policy-head">
+        <h3 id="policyTitle">Policy</h3>
+        <button class="close-x" type="button" id="policyClose">×</button>
+      </div>
+      <div class="policy-body" id="policyBody"></div>
+    </div>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+      <div class="cart-head">
+        <h3>Cart</h3>
+        <button class="close-x" type="button" id="cartClose">×</button>
+      </div>
+      <div class="cart-body" id="cartItems"></div>
+      <div class="cart-foot">
+        <div class="cart-summary"><strong>Total</strong><strong id="cartTotal">₹0</strong></div>
+        <button class="submit-btn" type="button" id="cartWhatsApp">Checkout on WhatsApp</button>
+        <div class="small-note">Contact details remain hidden during testing.</div>
+      </div>
+    </aside>
+
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Desk Name Plate",
+          category: "Decor",
+          description: "Personalized gift with a clean premium finish.",
+          material: "PLA",
+          price: 890,
+          svg: deskNamePlateSvg()
+        },
+        {
+          id: 2,
+          name: "Mini Planter Set",
+          category: "Decor",
+          description: "Decorative set for modern shelves and windows.",
+          material: "PLA",
+          price: 1190,
+          svg: miniPlanterSetSvg()
+        },
+        {
+          id: 3,
+          name: "Phone Dock",
+          category: "Mechanical Parts",
+          description: "Minimal dock for bedside tables and desks.",
+          material: "PETG",
+          price: 990,
+          svg: phoneDockSvg()
+        },
+        {
+          id: 4,
+          name: "Cable Organizer",
+          category: "Mechanical Parts",
+          description: "Keeps workspaces tidy with a refined look.",
+          material: "PLA",
+          price: 790,
+          svg: cableOrganizerSvg()
+        },
+        {
+          id: 5,
+          name: "Custom Key Holder",
+          category: "Miniatures",
+          description: "Family-friendly wall organizer for everyday use.",
+          material: "Resin",
+          price: 1490,
+          svg: customKeyHolderSvg()
+        },
+        {
+          id: 6,
+          name: "Small Business Stand",
+          category: "Decor",
+          description: "Display stand for counters, events, and popups.",
+          material: "PETG",
+          price: 1790,
+          svg: smallBusinessStandSvg()
+        }
+      ];
+
+      const categories = ["All", ...new Set(products.map((product) => product.category))];
+      const materials = ["PLA", "ABS", "PETG", "Resin"];
+      const fileStorageKey = "sst_file_name";
+      const cartStorageKey = "sst_cart_v1";
+      const cart = loadCart();
+      let activeCategory = "All";
+      let selectedMaterial = "PLA";
+      let quantity = 1;
+      let selectedFileName = localStorage.getItem(fileStorageKey) || "No file selected yet";
+      let activePolicy = null;
+      let cartOpen = false;
+      let waOpen = false;
+
+      const filterRow = document.getElementById("filterRow");
+      const productGrid = document.getElementById("productGrid");
+      const cartBadge = document.getElementById("cartBadge");
+      const cartDrawer = document.getElementById("cartDrawer");
+      const cartItems = document.getElementById("cartItems");
+      const cartTotal = document.getElementById("cartTotal");
+      const cartToggle = document.getElementById("cartToggle");
+      const cartClose = document.getElementById("cartClose");
+      const openCartFooter = document.getElementById("openCartFooter");
+      const waButton = document.getElementById("waButton");
+      const waPopup = document.getElementById("waPopup");
+      const waClose = document.getElementById("waClose");
+      const waInput = document.getElementById("waInput");
+      const waSend = document.getElementById("waSend");
+      const cartWhatsApp = document.getElementById("cartWhatsApp");
+      const policyModal = document.getElementById("policyModal");
+      const policyBackdrop = document.getElementById("modalBackdrop");
+      const policyClose = document.getElementById("policyClose");
+      const policyTitle = document.getElementById("policyTitle");
+      const policyBody = document.getElementById("policyBody");
+      const fileInput = document.getElementById("modelFile");
+      const fileName = document.getElementById("fileName");
+      const qtyMinus = document.getElementById("qtyMinus");
+      const qtyPlus = document.getElementById("qtyPlus");
+      const quantityDisplay = document.getElementById("quantityDisplay");
+      const quoteMaterial = document.getElementById("quoteMaterial");
+      const quoteMatPrice = document.getElementById("quoteMatPrice");
+      const quoteQty = document.getElementById("quoteQty");
+      const quoteMul = document.getElementById("quoteMul");
+      const quoteTotal = document.getElementById("quoteTotal");
+      const materialGroup = document.getElementById("materialGroup");
+      const saveRequestBtn = document.getElementById("saveRequestBtn");
+
+      renderFilterPills();
+      renderProducts();
+      renderMaterials();
+      renderQuotePanel();
+      renderCart();
+      renderFileName();
+
+      window.addEventListener("scroll", () => {
+        document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 4);
+      });
+
+      cartToggle.addEventListener("click", () => toggleCart(true));
+      cartClose.addEventListener("click", () => toggleCart(false));
+      openCartFooter.addEventListener("click", (event) => { event.preventDefault(); toggleCart(true); });
+      waButton.addEventListener("click", () => toggleWhatsApp());
+      waClose.addEventListener("click", () => toggleWhatsApp(false));
+      policyClose.addEventListener("click", () => closePolicy());
+      policyBackdrop.addEventListener("click", () => {
+        closePolicy();
+        toggleWhatsApp(false);
+        toggleCart(false);
+      });
+      saveRequestBtn.addEventListener("click", handleSaveRequest);
+      fileInput.addEventListener("change", (event) => {
+        const file = event.target.files?.[0];
+        selectedFileName = file ? file.name : "No file selected yet";
+        localStorage.setItem(fileStorageKey, selectedFileName);
+        renderFileName();
+      });
+      qtyMinus.addEventListener("click", () => {
+        quantity = Math.max(1, quantity - 1);
+        renderQuotePanel();
+      });
+      qtyPlus.addEventListener("click", () => {
+        quantity += 1;
+        renderQuotePanel();
+      });
+      document.querySelectorAll(".policy-open").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          openPolicy(link.dataset.policy);
+        });
+      });
+      document.querySelectorAll("[data-wa-message]").forEach((button) => {
+        button.addEventListener("click", () => {
+          waInput.value = button.dataset.waMessage;
+        });
+      });
+      waSend.addEventListener("click", () => {
+        const msg = waInput.value.trim() || "Hi Shree Sindhvai Tech! I have a query about your 3D printing services.";
+        window.open(whatsappUrl(msg), "_blank", "noopener,noreferrer");
+      });
+      cartWhatsApp.addEventListener("click", () => {
+        if (!cart.length) return;
+        const summary = cart.map((item) => `- ${item.name} x${item.quantity} (₹${Math.round(item.price * item.quantity)})`).join("\n");
+        const msg = [
+          "Hi Shree Sindhvai Tech! I want to place an order.",
+          "Cart summary:",
+          summary,
+          `Total: ₹${Math.round(cart.reduce((sum, item) => sum + item.price * item.quantity, 0))}`,
+          selectedFileName && selectedFileName !== "No file selected yet" ? `Attached model name: ${selectedFileName}` : ""
+        ].filter(Boolean).join("\n");
+        window.open(whatsappUrl(msg), "_blank", "noopener,noreferrer");
+      });
+      document.addEventListener("click", (event) => {
+        if (!waPopup.contains(event.target) && !waButton.contains(event.target) && waOpen) {
+          toggleWhatsApp(false);
+        }
+        if (!cartDrawer.contains(event.target) && !cartToggle.contains(event.target) && !event.target.closest("#openCartFooter") && cartOpen) {
+          toggleCart(false);
+        }
+      });
+
+      function toggleCart(force) {
+        cartOpen = typeof force === "boolean" ? force : !cartOpen;
+        cartDrawer.classList.toggle("open", cartOpen);
+        cartDrawer.setAttribute("aria-hidden", String(!cartOpen));
+        policyBackdrop.classList.toggle("open", cartOpen || waOpen || !!activePolicy);
+      }
+
+      function toggleWhatsApp(force) {
+        waOpen = typeof force === "boolean" ? force : !waOpen;
+        waPopup.classList.toggle("open", waOpen);
+        waPopup.setAttribute("aria-hidden", String(!waOpen));
+        policyBackdrop.classList.toggle("open", cartOpen || waOpen || !!activePolicy);
+      }
+
+      function openPolicy(policyKey) {
+        const policies = {
+          refund: {
+            title: "Refund Policy",
+            body: `
+              <p>All custom 3D printed orders are made to request and may not be refundable once production begins, except for verified manufacturing defects or incorrect dispatch.</p>
+              <h4>Defect Review</h4>
+              <p>If you receive a defective print, share clear photos within 48 hours of delivery. We will review replacement or remake options based on the issue.</p>
+              <h4>Important</h4>
+              <p>Because this is a pre-launch placeholder policy, these terms should be reviewed and finalized before the store goes live.</p>
+            `
+          },
+          shipping: {
+            title: "Shipping Policy",
+            body: `
+              <p>Orders are processed after design review and material confirmation. Shipping timelines vary based on part complexity, size, and finishing requirements.</p>
+              <h4>Typical Timeline</h4>
+              <p>Most pan-India deliveries are expected within 3–7 business days after dispatch. Remote locations may take longer.</p>
+              <h4>Tracking</h4>
+              <p>Tracking details should be shared once the parcel is handed over to the courier partner.</p>
+            `
+          },
+          privacy: {
+            title: "Privacy Policy",
+            body: `
+              <p>We only collect order and contact details required to process quotes and fulfilment. During testing, sensitive contact fields remain disabled or placeholder-only.</p>
+              <h4>Data Use</h4>
+              <p>Information is used for order communication, design review, and dispatch updates only.</p>
+              <h4>Placeholder Notice</h4>
+              <p>This policy text is a ready-to-edit placeholder and should be replaced with final legal copy before launch.</p>
+            `
+          },
+          terms: {
+            title: "Terms & Conditions",
+            body: `
+              <p>By submitting a custom order you confirm that the uploaded or linked file is your own or you are authorized to use it for production.</p>
+              <h4>Production Approval</h4>
+              <p>Production begins only after quote confirmation and technical review.</p>
+              <h4>Testing Notice</h4>
+              <p>These terms are placeholders for the standalone showcase version and should be finalized before production use.</p>
+            `
+          },
+          cancellation: {
+            title: "Cancellation Policy",
+            body: `
+              <p>Orders may be cancelled before production begins. Once printing starts or materials are consumed, cancellation may no longer be possible.</p>
+              <h4>How to Request</h4>
+              <p>Requests should be raised immediately after order placement. Final approval is subject to production status.</p>
+            `
+          }
+        };
+
+        activePolicy = policies[policyKey];
+        policyTitle.textContent = activePolicy.title;
+        policyBody.innerHTML = activePolicy.body;
+        policyModal.classList.add("open");
+        policyBackdrop.classList.add("open");
+      }
+
+      function closePolicy() {
+        activePolicy = null;
+        policyModal.classList.remove("open");
+        if (!cartOpen && !waOpen) {
+          policyBackdrop.classList.remove("open");
+        }
+      }
+
+      function renderFilterPills() {
+        filterRow.innerHTML = categories.map((category, index) => `
+          <button class="filter-pill ${index === 0 ? 'active' : ''}" type="button" data-category="${category}">${category}</button>
+        `).join("");
+
+        filterRow.querySelectorAll(".filter-pill").forEach((button) => {
+          button.addEventListener("click", () => {
+            activeCategory = button.dataset.category;
+            filterRow.querySelectorAll(".filter-pill").forEach((pill) => pill.classList.toggle("active", pill === button));
+            filterProducts();
+          });
+        });
+      }
+
+      function renderProducts() {
+        productGrid.innerHTML = products.map((product) => productCardMarkup(product)).join("");
+        productGrid.querySelectorAll("[data-add]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const productId = Number(button.dataset.add);
+            const product = products.find((item) => item.id === productId);
+            addToCart(product);
+          });
+        });
+        filterProducts();
+      }
+
+      function filterProducts() {
+        productGrid.querySelectorAll(".product-card").forEach((card) => {
+          const match = activeCategory === "All" || card.dataset.category === activeCategory;
+          if (match) {
+            card.classList.remove("hidden");
+            requestAnimationFrame(() => card.classList.remove("is-fading"));
+          } else {
+            card.classList.add("is-fading");
+            setTimeout(() => {
+              if (activeCategory !== "All" && card.dataset.category !== activeCategory) {
+                card.classList.add("hidden");
+              }
+            }, 180);
+          }
+        });
+      }
+
+      function renderMaterials() {
+        materialGroup.innerHTML = materials.map((material, index) => `
+          <button type="button" class="value-pill ${index === 0 ? 'active' : ''}" data-material="${material}">${material}</button>
+        `).join("");
+
+        materialGroup.querySelectorAll(".value-pill").forEach((button) => {
+          button.addEventListener("click", () => {
+            selectedMaterial = button.dataset.material;
+            materialGroup.querySelectorAll(".value-pill").forEach((pill) => pill.classList.toggle("active", pill === button));
+            renderQuotePanel();
+          });
+        });
+      }
+
+      function renderQuotePanel() {
+        quantityDisplay.textContent = String(quantity);
+        quoteMaterial.textContent = selectedMaterial;
+        quoteQty.textContent = String(quantity);
+        quoteMul.textContent = `×${quantity}`;
+        quoteMatPrice.textContent = "₹0";
+        quoteTotal.textContent = "Contact us";
+      }
+
+      function renderFileName() {
+        fileName.textContent = selectedFileName;
+      }
+
+      function addToCart(product) {
+        const existing = cart.find((item) => item.id === product.id);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push({ ...product, quantity: 1 });
+        }
+        saveCart();
+        renderCart();
+      }
+
+      function saveCart() {
+        localStorage.setItem(cartStorageKey, JSON.stringify(cart));
+      }
+
+      function loadCart() {
+        try {
+          const raw = localStorage.getItem(cartStorageKey);
+          return raw ? JSON.parse(raw) : [];
+        } catch {
+          return [];
+        }
+      }
+
+      function removeItem(id) {
+        const index = cart.findIndex((item) => item.id === id);
+        if (index >= 0) {
+          cart.splice(index, 1);
+          saveCart();
+          renderCart();
+        }
+      }
+
+      function changeQty(id, delta) {
+        const item = cart.find((entry) => entry.id === id);
+        if (!item) return;
+        item.quantity = Math.max(1, item.quantity + delta);
+        saveCart();
+        renderCart();
+      }
+
+      function renderCart() {
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cartBadge.textContent = String(count);
+        cartTotal.textContent = `₹${Math.round(total)}`;
+
+        if (!cart.length) {
+          cartItems.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
+          return;
+        }
+
+        cartItems.innerHTML = cart.map((item) => `
+          <article class="cart-item">
+            <div class="cart-thumb">${productSmallThumb(item.id)}</div>
+            <div>
+              <h4>${escapeHtml(item.name)}</h4>
+              <p>${escapeHtml(item.category)} • ${escapeHtml(item.material)}</p>
+              <div class="cart-controls">
+                <div class="qty-mini">
+                  <button type="button" data-dec="${item.id}">−</button>
+                  <span>${item.quantity}</span>
+                  <button type="button" data-inc="${item.id}">+</button>
+                </div>
+                <button class="remove-btn" type="button" data-remove="${item.id}">Remove</button>
+              </div>
+              <p style="margin-top:10px; color:var(--primary); font-weight:700;">₹${Math.round(item.price * item.quantity)}</p>
+            </div>
+          </article>
+        `).join("");
+
+        cartItems.querySelectorAll("[data-remove]").forEach((button) => button.addEventListener("click", () => removeItem(Number(button.dataset.remove))));
+        cartItems.querySelectorAll("[data-inc]").forEach((button) => button.addEventListener("click", () => changeQty(Number(button.dataset.inc), 1)));
+        cartItems.querySelectorAll("[data-dec]").forEach((button) => button.addEventListener("click", () => changeQty(Number(button.dataset.dec), -1)));
+      }
+
+      function whatsappUrl(message) {
+        const encoded = encodeURIComponent(message);
+        return `https://wa.me/91XXXXXXXXXX?text=${encoded}`;
+      }
+
+      function handleSaveRequest() {
+        const message = [
+          "Hi Shree Sindhvai Tech! I want a custom 3D print.",
+          `Material: ${selectedMaterial}`,
+          `Qty: ${quantity}`,
+          selectedFileName && selectedFileName !== "No file selected yet" ? `File: ${selectedFileName}` : "",
+          "Please send quote."
+        ].filter(Boolean).join(" ");
+        window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
+      }
+
+      function productCardMarkup(product) {
+        return `
+          <article class="product-card" data-category="${escapeHtml(product.category)}">
+            <div class="product-image">${product.svg}</div>
+            <div class="product-body">
+              <div class="product-head">
+                <h3 class="product-name">${escapeHtml(product.name)}</h3>
+                <span class="tag">${escapeHtml(product.category)}</span>
+              </div>
+              <p class="product-desc">${escapeHtml(product.description)}</p>
+              <div class="product-meta">
+                <div class="material-label">Material: ${escapeHtml(product.material)}</div>
+                <div class="price">₹${product.price}</div>
+              </div>
+              <button type="button" class="add-btn" data-add="${product.id}">Add to Cart</button>
+            </div>
+          </article>
+        `;
+      }
+
+      function productSmallThumb(id) {
+        const product = products.find((item) => item.id === id);
+        if (!product) return '';
+        const firstLine = product.svg.replace('height="200"', 'height="78"').replace('viewBox="0 0 300 200"', 'viewBox="0 0 300 200"');
+        return firstLine;
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#39;');
+      }
+
+      function deskNamePlateSvg() {
+        return `
+          <svg viewBox="0 0 300 200" width="100%" height="200" aria-label="Desk Name Plate illustration">
+            <defs>
+              <filter id="deskShadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0d6e6e" flood-opacity="0.15" /></filter>
+            </defs>
+            <rect width="300" height="200" fill="#EAE4DC"/>
+            <rect x="34" y="128" width="220" height="18" rx="9" fill="#D7D0C8" opacity="0.8"/>
+            <rect x="58" y="78" width="184" height="52" rx="10" fill="none" stroke="#0D6E6E" stroke-width="4" filter="url(#deskShadow)"/>
+            <rect x="70" y="90" width="160" height="6" rx="3" fill="#0D6E6E" opacity="0.35"/>
+            <rect x="70" y="104" width="118" height="5" rx="2.5" fill="#0D6E6E" opacity="0.25"/>
+            <rect x="242" y="150" width="34" height="4" rx="2" fill="#C96A3A"/>
+          </svg>`;
+      }
+
+      function miniPlanterSetSvg() {
+        return `
+          <svg viewBox="0 0 300 200" width="100%" height="200" aria-label="Mini Planter Set illustration">
+            <defs>
+              <filter id="planterShadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0d6e6e" flood-opacity="0.15" /></filter>
+            </defs>
+            <rect width="300" height="200" fill="#EAE4DC"/>
+            <g filter="url(#planterShadow)">
+              <path d="M72 130 L96 82 L120 130 Z" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M132 136 L156 68 L180 136 Z" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M192 128 L216 88 L240 128 Z" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M72 130 H120" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M132 136 H180" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M192 128 H240" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M98 84 C94 72 88 66 82 60" stroke="#C96A3A" stroke-width="3" fill="none"/>
+              <circle cx="82" cy="60" r="4" fill="#C96A3A"/>
+              <path d="M158 70 C154 58 148 52 141 46" stroke="#C96A3A" stroke-width="3" fill="none"/>
+              <circle cx="141" cy="46" r="4" fill="#C96A3A"/>
+              <path d="M218 90 C214 78 208 72 202 66" stroke="#C96A3A" stroke-width="3" fill="none"/>
+              <circle cx="202" cy="66" r="4" fill="#C96A3A"/>
+            </g>
+          </svg>`;
+      }
+
+      function phoneDockSvg() {
+        return `
+          <svg viewBox="0 0 300 200" width="100%" height="200" aria-label="Phone Dock illustration">
+            <defs>
+              <filter id="dockShadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0d6e6e" flood-opacity="0.15" /></filter>
+            </defs>
+            <rect width="300" height="200" fill="#EAE4DC"/>
+            <g filter="url(#dockShadow)">
+              <path d="M72 140 L145 140 L198 94 L125 94 Z" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M164 58 H212 V136 H164 Z" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+              <rect x="172" y="66" width="32" height="52" rx="5" fill="#0D6E6E" opacity="0.14"/>
+              <circle cx="206" cy="70" r="4" fill="#C96A3A"/>
+            </g>
+          </svg>`;
+      }
+
+      function cableOrganizerSvg() {
+        return `
+          <svg viewBox="0 0 300 200" width="100%" height="200" aria-label="Cable Organizer illustration">
+            <defs>
+              <filter id="cableShadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0d6e6e" flood-opacity="0.15" /></filter>
+            </defs>
+            <rect width="300" height="200" fill="#EAE4DC"/>
+            <g filter="url(#cableShadow)">
+              <path d="M70 88 C106 68 142 68 178 88 C142 108 106 108 70 88 Z" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M96 118 C122 98 148 98 174 118" stroke="#0D6E6E" stroke-width="4" fill="none"/>
+              <path d="M124 60 C136 76 144 92 150 120" stroke="#0D6E6E" stroke-width="4" fill="none"/>
+              <path d="M190 60 C178 76 170 92 164 120" stroke="#0D6E6E" stroke-width="4" fill="none"/>
+              <circle cx="218" cy="88" r="16" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+              <circle cx="218" cy="88" r="4" fill="#C96A3A"/>
+            </g>
+          </svg>`;
+      }
+
+      function customKeyHolderSvg() {
+        return `
+          <svg viewBox="0 0 300 200" width="100%" height="200" aria-label="Custom Key Holder illustration">
+            <defs>
+              <filter id="keyShadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0d6e6e" flood-opacity="0.15" /></filter>
+            </defs>
+            <rect width="300" height="200" fill="#EAE4DC"/>
+            <path d="M40 74 H260" stroke="#0D6E6E" stroke-width="5" filter="url(#keyShadow)"/>
+            <path d="M90 74 V138" stroke="#0D6E6E" stroke-width="4"/>
+            <path d="M150 74 V138" stroke="#0D6E6E" stroke-width="4"/>
+            <path d="M210 74 V138" stroke="#0D6E6E" stroke-width="4"/>
+            <circle cx="90" cy="112" r="14" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+            <circle cx="150" cy="112" r="14" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+            <circle cx="210" cy="112" r="14" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+            <path d="M84 126 L96 140" stroke="#0D6E6E" stroke-width="4"/>
+            <path d="M144 126 L156 140" stroke="#0D6E6E" stroke-width="4"/>
+            <path d="M204 126 L216 140" stroke="#0D6E6E" stroke-width="4"/>
+            <circle cx="252" cy="54" r="4" fill="#C96A3A"/>
+          </svg>`;
+      }
+
+      function smallBusinessStandSvg() {
+        return `
+          <svg viewBox="0 0 300 200" width="100%" height="200" aria-label="Small Business Stand illustration">
+            <defs>
+              <filter id="standShadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0d6e6e" flood-opacity="0.15" /></filter>
+            </defs>
+            <rect width="300" height="200" fill="#EAE4DC"/>
+            <g filter="url(#standShadow)">
+              <path d="M76 142 H224" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M94 142 V116 H206 V142" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M110 116 V88 H190 V116" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+              <path d="M126 88 V60 H174 V88" fill="none" stroke="#0D6E6E" stroke-width="4"/>
+              <rect x="132" y="66" width="20" height="12" rx="2" fill="#0D6E6E" opacity="0.14"/>
+              <rect x="116" y="96" width="16" height="10" rx="2" fill="#0D6E6E" opacity="0.14"/>
+              <rect x="182" y="124" width="16" height="10" rx="2" fill="#0D6E6E" opacity="0.14"/>
+              <circle cx="228" cy="64" r="4" fill="#C96A3A"/>
+            </g>
+          </svg>`;
+      }
+
+      function footerThumbSvg(product) {
+        return product.svg;
+      }
+    </script>
+  </body>
+</html>
